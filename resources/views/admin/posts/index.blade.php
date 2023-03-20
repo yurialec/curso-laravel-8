@@ -1,5 +1,5 @@
 @extends('admin.layouts.app')
-@section('title', "Listagem dos Posts")
+@section('title', 'Listagem dos Posts')
 @section('content')
     <a href="{{ route('posts.create') }}">Criar Novo Post</a>
     <h1>Posts</h1>
@@ -18,14 +18,13 @@
 
     @foreach ($posts as $post)
         <p>
-            {{ $post->title }}
+            {{ $post->title }}<br>
+            <img src="{{ url("storage/{$post->image}") }}" alt="{{ $post->title }}" width="250px"><br>
             [<a href="{{ route('posts.show', $post->id) }}">Ver</a>] -
             [<a href="{{ route('posts.edit', $post->id) }}">Editar</a>]
         </p>
+        <hr>
     @endforeach
-
-    <hr>
-
     @if (isset($filters))
         {{ $posts->appends($filters)->links() }}
     @else

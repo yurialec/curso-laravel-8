@@ -5,6 +5,7 @@
     <ul>
         <li><strong>Título: </strong> {{ $post->title }} </li>
         <li><strong>Conteúdo: </strong>{{ $post->content }} </li>
+        <li><img src="{{ url("storage/{$post->image}") }}" alt="{{ $post->title }}" width="350px"><br></li>
     </ul>
 
     <form action="{{ route('posts.destroy', $post->id) }}" method="POST">

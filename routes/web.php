@@ -23,6 +23,13 @@ Route::get('/posts/edit/{id}', [PostController::class, 'edit'])->name('posts.edi
 Route::put('/posts/{id}', [PostController::class, 'update'])->name('posts.update');
 Route::any('/posts/search', [PostController::class, 'search'])->name('posts.search');
 
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+
 Route::get('/', function () {
     return view('welcome');
 });
+
+require __DIR__ . '/auth.php';
